@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  get 'order_items/create'
+  resources :order_items, only: [:create, :update, :destroy]
 
-  get 'order_items/update'
+  resources :cart, only: [:show]
 
-  get 'order_items/destroy'
+  resources :products, only: [:index]
 
-  get 'carts/show'
-
-  get 'products/index'
+  root to: "products#index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
